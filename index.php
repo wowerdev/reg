@@ -19,6 +19,7 @@ $authConfig = [
 ];
 
 $connectAuth = new mysqli($authConfig["host"], $authConfig["login"], $authConfig["pass"], $authConfig["bd"]);
+$connectAuth->query("SET NAMES `utf8` COLLATE `utf8_general_ci`");
 
 if (isset($_POST["reg"]) and !isset($_POST["test_robot"]) and isset($_POST["login"]) and isset($_POST["pass"]) and isset($_POST["pass2"]) and isset($_POST["mail"]) and $connectAuth) {
   // Обрабатываем ajax запросы
